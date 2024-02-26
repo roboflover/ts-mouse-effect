@@ -1,7 +1,7 @@
 import Phaser from 'phaser'
 import MoveToPlugin from 'phaser3-rex-plugins/plugins/moveto-plugin.js';
 
-import HelloWorldScene from './scenes/HelloWorldScene'
+import MouseEffect from './scenes/MouseEffect'
 
 const config: Phaser.Types.Core.GameConfig = {
 	type: Phaser.AUTO,
@@ -13,7 +13,7 @@ const config: Phaser.Types.Core.GameConfig = {
 			gravity: { x: 0, y: 200 }
 		}
 	},
-	scene: [HelloWorldScene],
+	scene: [MouseEffect],
 	plugins: {
         global: [{
             key: 'rexMoveTo',
