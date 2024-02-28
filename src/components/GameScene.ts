@@ -24,7 +24,6 @@ export default class GameScene extends Phaser.Scene
 	preload()
     {
         this.load.image('star', 'assets/star3.png');
-
         this.load.image('background', 'assets/background.jpg')
     }
 
