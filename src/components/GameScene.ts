@@ -31,14 +31,18 @@ export default class GameScene extends Phaser.Scene
 
     create()
     {
+
         this.fullscreenKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
-        this.fullscreenKey.on('down', () => {
-            if (this.scale.isFullscreen) {
-              this.scale.stopFullscreen();
-            } else {
-              this.scale.startFullscreen();
-            }
-          });
+        // this.fullscreenKey.on('down', () => {
+        //     if (this.scale.isFullscreen) {
+        //       this.scale.stopFullscreen();
+        //     } else {
+        //       this.scale.startFullscreen();
+        //     }
+        //   });
+
+
+
 
         this.background = this.add.image(0, 0, 'background').setOrigin(0);
 
@@ -55,6 +59,14 @@ export default class GameScene extends Phaser.Scene
         const windowHeight = this.scale.height;
         this.background.displayWidth = windowWidth
         this.background.displayHeight = windowHeight
+        
+        if (document.fullscreenElement) {
+          console.log('privet')
+          this.scale.startFullscreen();
+        } else {
+          this.scale.stopFullscreen();
+        }
+
 
       };
 
