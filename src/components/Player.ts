@@ -13,12 +13,18 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     create(){
         
+        // Создание анимации вращения куба
+        this.scene.anims.create({
+            key: 'rotate',
+            frames: this.anims.generateFrameNumbers('cube', { frames: [0, 1, 2, 3, 4] }),
+            frameRate: 10,
+            repeat: -1
+        });
+
         function smoothstep(min, max, value) {
             var x = Math.max(0, Math.min(1, (value-min)/(max-min)));
             return x*x*(3 - 2*x);
         };
-
-        const star = this.scene.add.image(40, 400, 'star')
 
         this.emitter = this.scene.add.particles(0, 0, 'star', {
             speed: 100,
@@ -26,7 +32,14 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
             blendMode: "ADD",
           });
         
+        this.cube = this.scene.add.sprite(400, 400, 'cube');
+        this.cube.play('rotate');
+        const star =  this.cube //this.scene.add.image(40, 400, 'star')
         this.emitter.startFollow(star)
+
+        
+
+        
         this.scene.input.on('pointerdown', (pointer) => {
                 if (this.tween) {
                     this.tween.remove();

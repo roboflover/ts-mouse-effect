@@ -7,6 +7,10 @@ const config: Phaser.Types.Core.GameConfig = {
 	type: Phaser.AUTO,
 	width: 1000,
 	height: 600,
+	parent: 'main',
+	input: {
+		keyboard: true
+	  },
 	scale: {
 		mode: Phaser.Scale.RESIZE,
 		parent: 'game-container',
